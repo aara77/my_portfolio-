@@ -1,0 +1,8 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{@apply bg-snow font-sans text-ink antialiased;
+ background-image:radial-gradient(60rem 40rem at 10% -10%,#D4EDDA88,transparent),radial-gradient(50rem 40rem at 100% 30%,#EAC4D566,transparent),radial-gradient(50rem 40rem at 0% 80%,#B8E0D266,transparent);background-attachment:fixed}
+:focus-visible{outline:3px solid #809BCE;outline-offset:3px;border-radius:12px}
+.glass{@apply bg-white/60 backdrop-blur-xl border border-white/80 shadow-soft}
+.btn{@apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold transition-shadow}
