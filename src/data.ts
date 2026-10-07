@@ -6,13 +6,41 @@ export const profile = {
   github: '', linkedin: '', // TODO: paste your GitHub / LinkedIn URLs
 }
 export const focus = ['Frontend Development','Backend Development','REST APIs','Authentication','Database Integration','UI/UX-aware Development']
+import {
+  Code2,
+  Server,
+  Database,
+  Wrench,
+  Lightbulb,
+} from 'lucide-react';
+
 export const skills = [
-  { group: 'Frontend', emoji: '🌸', items: ['React.js','Next.js','HTML','CSS','Tailwind CSS'] },
-  { group: 'Backend', emoji: '🌿', items: ['Node.js','Express.js','Laravel','FastAPI'] },
-  { group: 'Database', emoji: '🍃', items: ['MongoDB','MySQL'] },
-  { group: 'Tools', emoji: '🧰', items: ['Git','GitHub','Postman','Figma'] },
-  { group: 'Concepts', emoji: '💡', items: ['REST APIs','JWT Authentication','CRUD Operations'] },
-]
+  {
+    group: 'Frontend',
+    icon: Code2,
+    items: ['React.js', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
+  },
+  {
+    group: 'Backend',
+    icon: Server,
+    items: ['Node.js', 'Express.js', 'Laravel', 'FastAPI'],
+  },
+  {
+    group: 'Database',
+    icon: Database,
+    items: ['MongoDB', 'MySQL'],
+  },
+  {
+    group: 'Tools',
+    icon: Wrench,
+    items: ['Git', 'GitHub', 'Postman', 'Figma'],
+  },
+  {
+    group: 'Concepts',
+    icon: Lightbulb,
+    items: ['REST APIs', 'JWT Authentication', 'CRUD Operations'],
+  },
+];
 export interface Project { id: string; title: string; sticker: string; description: string; tech: string[]; features?: string[]; links?: { label: string; href: string }[]; images?: string[]; tone: string }
 export const projects: Project[] = [
   { id: 'fillease', title: 'AI Auto-Filling System / FillEase', sticker: '✦ Backend & API', tone: 'from-aqua to-sage',
@@ -41,7 +69,19 @@ export const education = [
 ]
 export const certification = { title: 'MERN Stack Development', org: 'Broadway Infosys', year: '2024',
   text: 'Completed practical MERN stack training and applied it to a real-world project, building RESTful APIs, integrating frontend and backend, and implementing user authentication.' }
+import { Trophy, Code2 } from 'lucide-react';
+
 export const achievements = [
-  { emoji: '⚽', title: 'Best Player', text: '1st National Inter-Technical Futsal Cup and NCIT Sports Week', meta: '2022 · Lalitpur' },
-  { emoji: '💻', title: 'Two-Day Hackathon Participant', text: '', meta: '' },
-]
+  {
+    icon: Trophy,
+    title: 'Best Player',
+    text: '1st National Inter-Technical Futsal Cup and NCIT Sports Week',
+    meta: '2022 · Lalitpur',
+  },
+  {
+    icon: Code2,
+    title: 'Two-Day Hackathon Participant',
+    text: '',
+    meta: '',
+  },
+];
