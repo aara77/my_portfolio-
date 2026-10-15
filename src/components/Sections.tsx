@@ -347,7 +347,7 @@ export const Footer = () => {
           <div className="flex items-center gap-4">
             <div className="relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl bg-gradient-to-br from-blush via-sage to-aqua text-lg font-extrabold text-ink shadow-soft sm:h-16 sm:w-16">
               <img
-                src="/brand/logo.png"
+                src="/logo/Aarati_logo.png"
                 alt="Aarati Rai logo"
                 className="h-full w-full object-cover"
                 onError={(event) => {
