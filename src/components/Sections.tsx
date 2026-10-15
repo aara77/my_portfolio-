@@ -1,9 +1,11 @@
 import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import {
+  ArrowUpRight,
   Award,
   GraduationCap,
   Github,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
@@ -71,7 +73,7 @@ export const About = () => (
         <Reveal delay={0.05}>
           <GlassCard>
             <p className="font-bold text-powder">
-              Junior Full Stack Developer · Kathmandu, Nepal
+              Full Stack Developer · Kathmandu, Nepal
             </p>
             <p className="mt-3 leading-relaxed text-soft">{profile.bio}</p>
           </GlassCard>
@@ -328,8 +330,75 @@ export const Contact = () => {
   );
 };
 
-export const Footer = () => (
-  <footer className="pb-10 text-center text-sm font-bold text-soft">
-    Made with React, creativity & a little ✦ magic ✦
-  </footer>
-);
+export const Footer = () => {
+  const socials = [
+    { label: "Gmail", href: `mailto:${profile.email}`, icon: Mail },
+    { label: "LinkedIn", href: profile.linkedin, icon: Linkedin },
+    { label: "Instagram", href: profile.instagram, icon: Instagram },
+  ];
+
+  return (
+    <footer
+      id="site-footer"
+      className="w-full border-t border-powder/20 bg-gradient-to-r from-sage/45 via-snow to-blush/45 px-5 pb-8 pt-10 sm:pb-10 sm:pt-12"
+    >
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="grid gap-9 md:grid-cols-2 md:gap-12">
+          <div className="flex items-center gap-4">
+            <div className="relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl bg-gradient-to-br from-blush via-sage to-aqua text-lg font-extrabold text-ink shadow-soft sm:h-16 sm:w-16">
+              <img
+                src="/brand/logo.png"
+                alt="Aarati Rai logo"
+                className="h-full w-full object-cover"
+                onError={(event) => {
+                  event.currentTarget.hidden = true;
+                  event.currentTarget.nextElementSibling?.classList.remove("hidden");
+                }}
+              />
+              <span aria-hidden="true" className="hidden">AR</span>
+            </div>
+            <div>
+              <p className="font-display text-xl font-bold text-ink">Aarati Rai</p>
+              <p className="mt-1 text-sm font-semibold text-soft">
+                Full-Stack Developer ? UI/UX Designer
+              </p>
+            </div>
+          </div>
+
+          <div className="md:justify-self-end">
+            <h2 className="font-display text-xl font-bold text-ink">
+              Let's connect <span className="text-powder" aria-hidden="true">?</span>
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <li key={label}>
+                  {href ? (
+                    <a
+                      href={href}
+                      target={label === "Gmail" ? undefined : "_blank"}
+                      rel={label === "Gmail" ? undefined : "noreferrer"}
+                      className="group inline-flex items-center gap-1.5 py-1 text-sm font-bold text-soft transition-colors hover:text-ink"
+                    >
+                      <Icon size={16} aria-hidden="true" />
+                      {label}
+                      <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <span title="Add your Instagram URL in data.ts" className="inline-flex items-center gap-1.5 py-1 text-sm font-bold text-soft/60">
+                      <Icon size={16} aria-hidden="true" />{label}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-2 border-t border-powder/15 pt-5 text-xs font-bold text-soft sm:flex-row sm:items-center sm:justify-between">
+          <p>? 2026 Aarati Rai</p>
+          <p>Made with React, creativity & a little ?</p>
+        </div>
+      </div>
+    </footer>
+  );
+};

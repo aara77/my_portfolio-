@@ -8,7 +8,7 @@ const layers = {
 export default function ProjectCard({ project: p, index, onOpen }: { project: Project; index: number; onOpen: () => void }) {
   return (
     <motion.article initial="rest" whileHover="hover" whileFocus="hover" animate="rest" whileInView={{ opacity: 1 }}
-      className="glass group relative flex flex-col rounded-[2rem] p-5 transition-shadow hover:shadow-lift" tabIndex={-1}>
+      className="glass group relative flex h-full flex-col rounded-[2rem] p-5 transition-shadow hover:shadow-lift" tabIndex={-1}>
       <motion.div className="relative h-48 [perspective:800px]" whileHover={{ y: -4 }}>
         {[0, 1, 2].map(i => (
           <motion.div key={i} custom={i} variants={layers} transition={{ type: 'spring', stiffness: 220, damping: 20 }}
@@ -24,7 +24,7 @@ export default function ProjectCard({ project: p, index, onOpen }: { project: Pr
       <h3 className="mt-1 font-display text-xl font-bold">{p.title}</h3>
       <p className="mt-2 line-clamp-3 text-soft">{p.description}</p>
       <ul className="mt-4 flex flex-wrap gap-2">{p.tech.map(t => <li key={t} className="rounded-full bg-white/80 px-3 py-1 text-xs font-bold ring-1 ring-aqua">{t}</li>)}</ul>
-      <div className="mt-5 flex items-center gap-4">
+      <div className="mt-auto flex items-center gap-4 pt-5">
         <button onClick={onOpen} className="btn bg-ink px-4 py-2 text-sm text-snow">View details</button>
         {p.links?.[0] && <a href={p.links[0].href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-bold underline decoration-powder underline-offset-4">Visit <ArrowUpRight size={14} aria-hidden /><span className="sr-only">{p.links[0].label} (opens in new tab)</span></a>}
       </div>

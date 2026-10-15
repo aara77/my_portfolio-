@@ -27,8 +27,12 @@ export default function App() {
         <Hero /><About /><Skills />
         <Section id="projects">
           <SectionHeading title="Featured projects" hint="Hover a card to fan out its screenshots, click for details." />
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p, i) => <Reveal key={p.id} delay={(i % 3) * 0.08}><ProjectCard project={p} index={i} onOpen={() => setOpen(p)} /></Reveal>)}
+          <div className="grid items-stretch gap-7 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((p, i) => (
+              <Reveal key={p.id} delay={(i % 3) * 0.08} className="h-full">
+                <ProjectCard project={p} index={i} onOpen={() => setOpen(p)} />
+              </Reveal>
+            ))}
           </div>
         </Section>
         <Experience /><Education /><Achievements /><Contact />
